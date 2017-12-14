@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>Course</title>
+</head>
+
+<body>
+    <h1>{{ course.name }}</h1>
+    {% for source in course.source_set.all %}
+    <li>
+        <a href = "{{source.link}}">{{ source.name }}</a>-Diff:{{source.difficulty}}-Score:{{source.score}}
+    </li>
+    {% endfor %}
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+
+<div id="index_header">
+    <h2 class="index_title">~About us</h2>
+</div>>
+<div class="text-center">
+    <p style="margin-left:30px;padding:20px;"><strong>Soarya</strong> is an education resources sharing and rating website. It is a knowledge search engine/library built by its users.</p><img src="{% static 'assets/img/About1.png'%}" style="text-align:center;" />
+    <p style="padding:20px;">The users can share any resource they find helpful on certain subject. The resources can be textbooks, courses taught in a university, online courses, a discussion forum, links to websites (such as Wikipedia), research papers, etc. </p>
+    <div class="divider"
+    style="margin:0px;background-color:#434343;">
+
+    </div>
+    <p style="padding:40px;"><strong>WHAT IS SOURYA?</strong> – A Complete Subject-Based Knowledge Network/Map </p><img src="{% static 'assets/img/About2.png'%}" height="300px" />
+    <p style="padding:20px;">We give you the knowledge network so that you know what you know, what you do not know. If you are not sure if you know something or not, take a quiz.If you do not know something, you know where to learn. </p>
+    <div class="divider" style="margin:0px;background-color:#434343;"></div>
+    <p style="padding:40px;"><strong>WHO ARE THE POTENCIAL USERS? WHAT CAN THEY DO?</strong> </p>
+    <p>The knowledge are high school, college, master and PHD levels.The users are whoever interested in learning the subject. They can search, refresh, update, explore, keep a record of knowledge in a fast way. The users can range from high school students
+        to research scientists. </p><img src="{% static 'assets/img/About3.png'%}" height="300px;" />
+    <p style="padding:20px;"> The users can share any resource they find helpful on certain subject. The resources can be textbooks, courses taught in a university, online courses, a discussion forum, links to websites (such as Wikipedia), research papers, etc.  </p>
+</div>
+{% endblock %}

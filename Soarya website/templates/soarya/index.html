@@ -1,0 +1,218 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+
+    <!-- Banner -->
+<section id="banner">
+    <div class="container">
+        <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <form action="#" method="#" role="search">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Search . . ." name="srch-term" id="ed-srch-term" type="text">
+                    <div class="input-group-btn">
+                    <button type="submit" id="searchbtn">
+                    search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    <p>Better Study, Better Career, Better Life</p>
+    <!--<ul class="actions">
+        <li>
+            <a href="#" class="button middle">Lorem ipsum dolor</a>
+        </li>
+    </ul>
+    -->
+</section>
+    <!-- One -->
+			<section id="one" class="wrapper style1 special">
+				<div class="container">
+					<header class="major">
+						<h2>Start your journey</h2>
+						<p>.....................</p>
+					</header>
+					<div class="row">
+						<div class="4u 12u$(medium) col-md-4">
+							<section class="box">
+								<i class="icon big rounded color0 fa-table"></i>
+								<h3>Statistics</h3>
+                                    <div><i class = 'fa fa-th'></i><a href="{% url 'soarya:lesson' subject_slug='statistics' course_slug='probability' %}">&nbsp Probability</a></div>
+                                    <div><i class = 'fa fa-database'></i><a href="{% url 'soarya:lesson' subject_slug='statistics' course_slug='statistics' %}">&nbsp Statistics</a></div>
+                                    <div><i class = 'fa fa-random'></i><a href="{% url 'soarya:lesson' subject_slug='statistics' course_slug='probability' %}">&nbsp Random Processes</a></div>
+                                    <div><a href="{%url 'soarya:subject' subject_slug='statistics'  %}">
+										...more</a></div>
+                            </section>
+						</div>
+						<div class="4u 12u$(medium) col-md-4">
+							<section class="box">
+								<i class="icon big rounded color9 fa-desktop"></i>
+								<h3>Computer Science</h3>
+								<div><i class = 'fa fa-truck'></i><a href='url'>&nbsp Web Development</a></div>
+								<div><i class = 'fa fa-graduation-cap'></i><a href='url'>&nbsp Machine Learning</a></div>
+								<div><i class = 'fa fa-question'></i><a href='url'>&nbsp Coming soon</a></div>
+								<div><a href="{%url 'soarya:subject' subject_slug='computer-science'  %}">
+										...more</a></div>
+ 							</section>
+						</div>
+						<div class="4u$ 12u$(medium) col-md-4">
+							<section class="box">
+								<i class="icon big rounded color6 fa-heart-o	"></i>
+								<h3>Psycology</h3>
+								<p>
+									Thanks for you attention, this part well come soon.
+								</p>
+							</section>
+						</div>
+					</div>
+					<div class="row">
+						<div class="4u$ 12u$(medium) col-md-4">
+							<section class="box">
+								<i class="icon big rounded color6 fa-rocket"></i>
+								<h3>Philosophy</h3>
+								<p>
+									Thanks for you attention, this part well come soon.
+								</p>
+							</section>
+						</div>
+						<div class="4u$ 12u$(medium) col-md-4">
+							<section class="box">
+								<i class="icon big rounded color6 fa-rocket"></i>
+								<h3>Art</h3>
+								<p>
+									Thanks for you attention, this part well come soon.
+								</p>
+							</section>
+						</div>
+						<div class="4u$ 12u$(medium) col-md-4">
+							<section class="box">
+								<i class="icon big rounded color6 fa-rocket"></i>
+								<h3>Coming soon...</h3>
+								<p>
+									Thanks for you attention, this part well come soon.
+								</p>
+							</section>
+						</div>
+					</div>
+				</div>
+			</section>
+    <!-- Two -->
+			<!-- Two -->
+			<section id="two" class="wrapper style2 special">
+    <div class="container">
+        <header class="major">
+            <h2>Our Team</h2>
+            <p class="text-success">We started Soarya when attending Berkeley and aimed to build the education resources search engine
+                and knowledge map to provide the most efficient way of learning to make everyone more productive, more organized, more goal-oriented in their education journey.<p>
+        </header>
+        <section class="profiles">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 team-wrap">
+                  <div class="team-member text-center">
+                    <div class="team-img">
+                      <img src="{% static 'assets/img/team/yizhou.jpg' %}" alt="">
+                      <div class="overlay">
+                        <div class="team-details text-center">
+                          <p>
+                            Yizhou loves coding, art and philosophy. He believes that education is the social welfare for everyone.
+                          </p>
+                          <div class="socials mt-20">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h6 class="team-title">Database/Website Developer</h6>
+                    <span> Yizhou Zhao</span>
+                  </div>
+                </div>
+
+                <!--kara-->
+                <div class="col-md-3 col-sm-3 team-wrap">
+                  <div class="team-member text-center">
+                    <div class="team-img">
+                      <img src="{% static 'assets/img/team/kara.jpg' %}" alt="">
+                      <div class="overlay">
+                        <div class="team-details text-center">
+                          <p>
+                           Kara is always passionate about education. She wants to provide the life-long learning opportunities and a permanent record of all your study activities.
+                          </p>
+                          <div class="socials mt-20">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="team-title">Designer/Founder</h6>
+                    <span>Kara Yang</span>
+                  </div>
+                </div>
+
+                <!--karan-->
+                <div class="col-md-3 col-sm-3 team-wrap">
+                  <div class="team-member text-center">
+                    <div class="team-img">
+                      <img src="{% static 'assets/img/team/kailai.jpg' %}" alt="">
+                      <div class="overlay">
+                        <div class="team-details text-center">
+                          <p>
+                            Kailai is a workaholic. He never feels tired about studying and researching.
+                          </p>
+                          <div class="socials mt-20">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="team-title">Consultant</h6>
+                    <span>Kailai Xu</span>
+                  </div>
+                </div>
+                 <div class="col-md-3 col-sm-3 team-wrap">
+                  <div class="team-member text-center">
+                    <div class="team-img">
+                      <img src="http://placehold.it/576x862" alt="">
+                      <div class="overlay">
+                        <div class="team-details text-center">
+                          <p>
+                            Karen is a night owl. She loves to start programming in the midnight.
+                          </p>
+                          <div class="socials mt-20">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="team-title">Consultant</h6>
+                    <span>Karen Lu</span>
+                  </div>
+                </div>
+            </div>
+            <footer>
+            <p></p>
+            <ul class="actions">
+                <li>
+                    <a href="#" class="button big">Join us</a>
+                </li>
+            </ul>
+            </footer>
+        </section>
+    </div>
+</section>
+
+{% endblock %}

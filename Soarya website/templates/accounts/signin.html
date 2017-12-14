@@ -1,0 +1,24 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+    <div class="login-dark">
+        <form method="post" action="{% url 'accounts:login' %}">
+            {% csrf_token %}
+            <input type="hidden"  name="next" value="{{ request.GET.next }}">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><i class="fa fa-lock"></i></div>
+            <div class="form-group">
+                <!--input class="form-control" type="email" name="email" placeholder="Email">-->
+                 <input class="form-control" type="text" placeholder="Username" name="username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Log In</button>
+            </div><a href="{% url 'soarya:coming'%}" class="forgot">Forgot your email or password?</a>
+            <a href="{% url 'accounts:signup'%}" class="forgot">
+            <span style="text-decoration: underline;">Register</span> </a>
+        </form>
+    </div>
+{% endblock %}

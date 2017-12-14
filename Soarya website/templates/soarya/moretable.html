@@ -1,0 +1,226 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+<div id="index_header">
+        <h2 class="index_title"><strong>~{{course_slug}}~</strong></h2>
+ </div>
+<div class="col-sm-12 cbox">
+    <div class="offset-sm-4">
+        <div class="divider"></div>
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="divider"></div>
+            <div class="tabbable-panel">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a href="#tab_default_1" data-toggle="tab">
+                            All</a>
+                        </li>
+                        <li>
+                            <a href="#tab_default_2" data-toggle="tab">
+                            Coming soon</a>
+                        </li>
+                        <li>
+                            <a href="#tab_default_3" data-toggle="tab">
+                            Coming soon</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- main -->
+            <div class="row" id="main tab_default_1">
+                <div class="padding">
+                    <div class="full col-sm-9">
+
+                         {% if label == 'tutorials' %}
+                        <!--Tutorials-->
+                        <div class="col-sm-12">
+                          <h3 class="page-header text-primary">
+                          Tutorials
+                          </h3>
+                        </div>
+                        {% for tutorial in sources %}
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <h3><a href="{{ tutorial.link }}">{{ tutorial.name }}</a></h3>
+                            <h4><span class="label label-default">{{ tutorial.author }}</span></h4><h4>
+                            <small class="text-muted">Shared on {{ tutorial.pub_date|date }} •
+                                <a href="#" class="text-primary">Read comments</a></small>
+                             </h4>
+                            <h4>
+                                {% for i in "xxxxx" %}
+                              {% if forloop.counter0 < tutorial.score %}
+                            <span>★</span>
+                              {% else %}
+                             <span>&#9734</span>
+                              {% endif %}
+                              {% endfor %}
+                              {% if tutorial.difficulty > 2.5 %}
+                             <span>&nbsp</span><span>Hard</span>;
+                              {% else %}
+                              <span></span><span>Easy</span>;
+                              {% endif %}
+                             </h4>
+
+                          </div>
+                          <div class="col-sm-2">
+                            <img src="https://placehold.it/100x80" class="img-rectangle">
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div class="page-header text-muted divider">
+                          </div>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+
+
+                        <!--books-->
+                        {% if label == 'books' %}
+                        <!--books-->
+                        <div class="col-sm-12" id="featured">
+                          <h3 class="page-header text-primary">
+                          Books
+                          </h3>
+                        </div>
+
+                        <div class="row">
+                            {% for book in sources %}
+                          <div class="col-sm-6 text-center">
+                            <h4><a href="{{ book.link }}" target="_blank">{{ book.name }}</a></h4>
+                             <p>{{ book.author }}</p>
+                            <a href="#"><img src="https://placehold.it/84x120" class="img-rectangle"></a>
+                             <br><br>
+                              {% for i in "xxxxx" %}
+                              {% if forloop.counter0 < book.score %}
+                            <span>★</span>
+                              {% else %}
+                             <span>&#9734</span>
+                              {% endif %}
+                              {% endfor %}
+                              {% if book.difficulty > 2.5 %}
+                             <span>&nbsp</span><span>Hard</span>;
+                              {% else %}
+                              <span></span><span>Easy</span>;
+                              {% endif %}
+                              <p class="text-muted">Shared on {{ book.pub_date|date }} • <a href="#" class="text-muted">Read comments</a></p>
+                              <div class="divider"></div>
+                          </div>
+                            {% endfor %}
+                        </div>
+
+                        {% endif %}
+
+                        <!--blogs-->
+                        {% if label == 'blogs' %}
+                        <!--Tutorials-->
+                        <div class="col-sm-12">
+                          <h3 class="page-header text-primary">
+                          Blogs
+                          </h3>
+                        </div>
+
+                        {% for blog in sources %}
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3><a href="{{ blog.link }}">{{ blog.name }}</a></h3>
+                             <h4><span class="label label-success">{{ blog.author }}</span></h4>
+                            <h4>
+                                <small class="text-muted">Shared on {{ blog.pub_date|date }} •
+                                <a href="#" class="text-primary">Read comments &nbsp &nbsp</a></small>
+                                {% for i in "xxxxx" %}
+                                  {% if forloop.counter0 < blog.score %}
+                                <span>★</span>
+                                  {% else %}
+                                 <span>&#9734</span>
+                                  {% endif %}
+                                {% endfor %}
+
+                                  {% if blog.difficulty > 2.5 %}
+                                 <span>&nbsp</span><span>Hard</span>;
+                                  {% else %}
+                                  <span></span><span>Easy</span>;
+                                  {% endif %}
+                             </h4>
+                          </div>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+
+                        <!--courses-->
+                        {% if label == 'courses' %}
+                        <!--books-->
+                        <div class="col-sm-12" id="featured">
+                          <h3 class="page-header text-primary">
+                          Courses
+                          </h3>
+                        </div>
+
+                        {% for course in sources %}
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3><a href="{{ course.link }}">{{ course.name }}</a></h3>
+                             <h4><span class="label label-success">{{ course.author }}</span></h4>
+                            <h4>
+                                <small class="text-muted">Shared on {{ course.pub_date|date }} •
+                                <a href="#" class="text-primary">Read comments &nbsp &nbsp</a></small>
+                                {% for i in "xxxxx" %}
+                                  {% if forloop.counter0 < course.score %}
+                                <span>★</span>
+                                  {% else %}
+                                 <span>&#9734</span>
+                                  {% endif %}
+                                {% endfor %}
+
+                                  {% if course.difficulty > 2.5 %}
+                                 <span>&nbsp</span><span>Hard</span>;
+                                  {% else %}
+                                  <span></span><span>Easy</span>;
+                                  {% endif %}
+                             </h4>
+                          </div>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+
+
+
+                        <div class="col-sm-12" id="stories">
+                          <div class="page-header text-muted divider">
+                          </div>
+                        </div>
+
+
+                        <div>
+                        {% if sources.has_other_pages %}
+                          <ul class="pagination">
+                            {% if sources.has_previous %}
+                              <li><a href="?page={{ sources.previous_page_number }}">&laquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&laquo;</span></li>
+                            {% endif %}
+                            {% for i in sources.paginator.page_range %}
+                              {% if sources.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                              {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                              {% endif %}
+                            {% endfor %}
+                            {% if sources.has_next %}
+                              <li><a href="?page={{ sources.next_page_number }}">&raquo;</a></li>
+                            {% else %}
+                              <li class="disabled"><span>&raquo;</span></li>
+                            {% endif %}
+                          </ul>
+                        {% endif %}
+                        </div>
+                </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+
+    <div id="index_header">
+        <h2 class="index_title"><strong>~We are from Berkeley, CA</strong></h2>
+    </div>
+    <div class="map-clean">
+        <iframe allowfullscreen="" frameborder="0" width="100%" height="350" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDGKtxoFiQn983BK3Dvy8TsaszVAXP2EqY&amp;q=Berkeley%2CCA&amp;zoom=10"></iframe>
+    </div>
+    <div class="contact-clean">
+        <form method="post">
+             {% csrf_token %}
+            <h2 class="text-center">Contact us</h2>
+            <div class="form-group has-success has-feedback">
+                <input class="form-control" type="text" name="name" placeholder="Name"><i class="form-control-feedback glyphicon glyphicon-user" aria-hidden="true"></i></div>
+            <div class="form-group has-error has-feedback">
+                <input class="form-control" type="email" name="email" placeholder="Email"><i class="form-control-feedback glyphicon glyphicon-envelope" aria-hidden="true"></i></div>
+            <div class="form-group">
+                <textarea class="form-control" rows="14" name="message" placeholder="Message"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">submit</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

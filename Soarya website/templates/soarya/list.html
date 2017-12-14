@@ -1,0 +1,63 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+    <div id="index_header">
+        <h2 class="index_title"><strong>~{{category.name}}</strong></h2>
+	</div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                <div class="container">
+					<div class="row col-list">
+						<div class="col-md-4 t1">
+							<div class="col-head text-center">
+								<span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+								<h2>Theory</h2>
+							</div>
+							<ul class="list-unstyled">
+								{% for course in courses %}
+								{% if course.column == 0 %}
+							 <li>
+								<p class="option"><span class="fa fa-arrow-right" aria-hidden="true"></span>
+									<a href="{% url 'soarya:lesson' subject_slug=category.slug course_slug=course.slug %}">{{course.name}}</a></p>
+							 </li>
+								{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="col-md-4 t2">
+							<div class="col-head text-center">
+								<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+								<h2>Practice</h2>
+							</div>
+							<ul class="list-unstyled">
+								{% for course in courses %}
+								{% if course.column == 1 %}
+							 <li>
+								<p class="option"><span class="fa fa-arrow-right" aria-hidden="true"></span>
+									<a href="{% url 'soarya:lesson' subject_slug=category.slug course_slug=course.slug %}">{{course.name}}</a></p>
+							 </li>
+								{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+						<div class="col-md-4 t3">
+							<div class="col-head text-center">
+								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+								<h2>Others</h2>
+							</div>
+							<ul class="list-unstyled">
+							 <li>
+								<p class="option"><span class="fa fa-arrow-right" aria-hidden="true"></span>
+									<a>Coming soon</a></p>
+							 </li>
+
+							</ul>
+						</div>
+					</div>
+  					<hr />
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

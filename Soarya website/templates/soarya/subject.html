@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<html>
+<head>
+<title>Sourya Index</title>
+</head>
+<body>
+    <h1>{{category.name}}</h1>
+    {% for course in category.course_set.all %}
+    <li>
+        <!--a href = "/soarya/{{ category.slug }}/{{ course.slug }}/">----{{ course.name }}</a-->
+        <a href = "{% url 'soarya:lesson' subject_slug=category.slug course_slug=course.slug %}">----{{ course.name }}</a>
+    </li>
+    {% endfor %}
+</body>
+</html>
+

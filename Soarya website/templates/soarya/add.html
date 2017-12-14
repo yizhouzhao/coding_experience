@@ -1,0 +1,45 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+
+    <div id="index_header">
+        <h2 class="index_title"><strong>~Data Sciences~Machine Learning~</strong></h2>
+        <div class="divider"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 add_soarya">
+            <form class="form-horizontal" method="post" action="#">
+                {% csrf_token %}
+                <input type="hidden"  name="next" value="{{ request.GET.next }}">
+                {% for field in form %}
+                <div class="form-group">
+                    <label>{{field.label_tag}}</label>
+                    <div class="cols-sm-12">
+                        <div class="input-group">
+                            {% if forloop.counter == 1 %}
+                            <span class="input-group-addon"><i class="fa fa-book fa" aria-hidden="true"></i></span>
+                            {% elif forloop.counter == 2 %}
+                            <span class="input-group-addon"><i class="fa fa-bookmark-o fa" aria-hidden="true"></i></span>
+                            {% else %}
+                            <span class="input-group-addon"><i class="fa fa-sticky-note-o fa" aria-hidden="true"></i></span>
+                            {% endif %}
+                            <!--<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>-->
+                            {{ field }}
+                        </div>
+                    </div>
+                </div>
+                {% for error in field.errors %}
+                      <p style="color: red">{{ error }}</p>
+                {% endfor %}
+                {% endfor %}
+
+                <div class="form-group ">
+                    <button type="submit" class="btn btn-lg btn-block login-button button big">Submit</button>
+                </div>
+                <div class="login-register">
+                    <a href="index.php">Login</a>
+                 </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

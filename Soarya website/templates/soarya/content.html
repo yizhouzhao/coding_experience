@@ -1,0 +1,259 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+<div id="index_header">
+    <h2 class="index_title"><strong>~{{ course.name }}</strong></h2>
+</div>
+
+<div class="cwrapper">
+    <div class="cbox row">
+            <!-- sidebar -->
+        <div class="column col-sm-2" id="sidebar">
+            <a class="logo" href="#">Soarya</a>
+            <ul class="nav">
+                <li class="active"><a href="#tutorials">Totorials</a>
+                </li>
+                <li><a href="#courses">Courses</a>
+                </li>
+                <li><a href="#books">Books</a>
+                </li>
+                <li><a href="#blogs">Blogs</a>
+                </li>
+            </ul>
+            <br>
+            <div>
+                <button type="button" class="btn btn-success" style="margin-left:20px">Add Soarya</button>
+            </div>
+        </div>
+<!-- /sidebar -->
+        <div class="column col-sm-10">
+            <div class="divider"></div>
+            <div class="tabbable-panel">
+            <div class="tabbable-line">
+                <ul class="nav nav-tabs ">
+                    <li class="active">
+                        <a href="#tab_default_1" data-toggle="tab">
+                        All</a>
+                    </li>
+                    <li>
+                        <a href="#tab_default_2" data-toggle="tab">
+                        Coming soon...</a>
+                    </li>
+                    <li>
+                        <a href="#tab_default_3" data-toggle="tab">
+                        Coming soon...</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+                <!-- main -->
+            <div class="row" id="main tab_default_1">
+                <div class="padding">
+                    <div class="full col-sm-9">
+                        <div class="col-sm-12" id="featured">
+                          <h3 class="page-header text-primary" id="tutorials">
+                          Tutorials
+                          </h3>
+                        </div>
+
+                        {% for tutorial in tutorials %}
+                        <div class="row">
+                          <div class="col-sm-10">
+                            <h3><a href="{{ tutorial.link }}">{{ tutorial.name }}</a></h3>
+                            <h4><span class="label label-default">{{ tutorial.author }}</span></h4><h4>
+                            <small class="text-muted">Shared on {{ tutorial.pub_date|date }} •
+                                <a href="/soarya/{{subject_slug}}/{{course.slug}}/{{tutorial.id}}/comments" class="text-primary">Read comments</a></small>
+                             </h4>
+                            <h4>
+                                {% for i in "xxxxx" %}
+                              {% if forloop.counter0 < tutorial.score %}
+                            <span>★</span>
+                              {% else %}
+                             <span>&#9734</span>
+                              {% endif %}
+                              {% endfor %}
+                              {% if tutorial.difficulty > 2.5 %}
+                             <span>&nbsp</span><span>Hard</span>;
+                              {% else %}
+                              <span></span><span>Easy</span>;
+                              {% endif %}
+                             </h4>
+
+                          </div>
+                          <div class="col-sm-2">
+                            <img src="https://placehold.it/100x80" class="img-rectangle">
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div class="page-header text-muted divider">
+                          </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-sm-12">
+                          <div>
+                              <p class="text-right">
+                                  <a class="text-success" href="/soarya/{{subject_slug}}/{{course.slug}}/{{'tutorials'}}/">
+                                  ...see more...</a></p>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div class="page-header text-muted divider">
+                          </div>
+                        </div>
+
+                        <!--Books-->
+                        <div class="col-sm-12" id="books">
+                          <h3 class="page-header text-primary">
+                          Books
+                          </h3>
+                        </div>
+
+                        <div class="row">
+                            {% for book in books %}
+                          <div class="col-sm-6 text-center">
+                            <h4><a href="{{ book.link }}" target="_blank">{{ book.name }}</a></h4>
+                             <p>{{ book.author }}</p>
+                            <a href="#"><img src="https://placehold.it/84x120" class="img-rectangle"></a>
+                             <br><br>
+                              {% for i in "xxxxx" %}
+                              {% if forloop.counter0 < book.score %}
+                            <span>★</span>
+                              {% else %}
+                             <span>&#9734</span>
+                              {% endif %}
+                              {% endfor %}
+                              {% if book.difficulty > 2.5 %}
+                             <span>&nbsp</span><span>Hard</span>;
+                              {% else %}
+                              <span></span><span>Easy</span>;
+                              {% endif %}
+                              <p class="text-muted">Shared on {{ book.pub_date|date }} •
+                                  <a href="/soarya/{{subject_slug}}/{{course.slug}}/{{book.id}}/comments" class="text-muted">Read comments</a></p>
+                              <div class="divider"></div>
+                          </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-sm-12">
+                          <div>
+                              <p class="text-right">
+                                  <a class="text-success" href="/soarya/{{subject_slug}}/{{course.slug}}/{{'books'}}/">
+                                  ...see more...</a></p>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12" id="">
+                          <div class="page-header text-muted divider">
+                          </div>
+                        </div>
+
+
+                        <!--blogs-->
+                        <div class="col-sm-12" id="blogs">
+                          <h3 class="page-header text-primary">
+                          Blogs
+                          </h3>
+                        </div>
+
+                        <div class="col-sm-12" >
+                          <div class="page-header text-muted divider">
+                          </div>
+                        </div>
+
+
+                        {% for blog in blogs %}
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3><a href="{{ blog.link }}">{{ blog.name }}</a></h3>
+                             <h4><span class="label label-success">{{ blog.author }}</span></h4>
+                            <h4>
+                                <small class="text-muted">Shared on {{ blog.pub_date|date }} •
+                                <a href="/soarya/{{subject_slug}}/{{course.slug}}/{{blog.id}}/comments" class="text-primary">Read comments &nbsp &nbsp</a></small>
+                                {% for i in "xxxxx" %}
+                                  {% if forloop.counter0 < blog.score %}
+                                <span>★</span>
+                                  {% else %}
+                                 <span>&#9734</span>
+                                  {% endif %}
+                                {% endfor %}
+
+                                  {% if blog.difficulty > 2.5 %}
+                                 <span>&nbsp</span><span>Hard</span>;
+                                  {% else %}
+                                  <span></span><span>Easy</span>;
+                                  {% endif %}
+                             </h4>
+                          </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-sm-12">
+                          <div>
+                              <p class="text-right">
+                                  <a class="text-success" href="/soarya/{{subject_slug}}/{{course.slug}}/{{'blogs'}}/">
+                                  ...see more...</a></p>
+                          </div>
+                        </div>
+
+                        <div class="col-sm-12" id="">
+                          <div class="page-header text-muted divider">
+                          </div>
+                        </div>
+
+                        <!--Courses-->
+                        <div class="col-sm-12" id="courses">
+                          <h3 class="page-header text-primary">
+                          Courses
+                          </h3>
+                        </div>
+
+                        <div class="col-sm-12" id="">
+                          <div class="page-header text-muted divider">
+                          </div>
+                        </div>
+
+                        {% for scourse in courses %}
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <h3><a href="{{ course.link }}">{{ scourse.name }}</a></h3>
+                             <h4><span class="label label-success">{{ scourse.author }}</span></h4>
+                            <h4>
+                                <small class="text-muted">Shared on {{ scourse.pub_date|date }} •
+                                <a href="/soarya/{{subject_slug}}/{{course.slug}}/{{scourse.id}}/comments" class="text-primary">Read comments &nbsp &nbsp</a></small>
+                                {% for i in "xxxxx" %}
+                                  {% if forloop.counter0 < scourse.score %}
+                                <span>★</span>
+                                  {% else %}
+                                 <span>&#9734</span>
+                                  {% endif %}
+                                {% endfor %}
+
+                                  {% if scourse.difficulty > 2.5 %}
+                                 <span>&nbsp</span><span>Hard</span>;
+                                  {% else %}
+                                  <span></span><span>Easy</span>;
+                                  {% endif %}
+                             </h4>
+                          </div>
+                        </div>
+                        {% endfor %}
+
+                        <div class="col-sm-12">
+                          <div>
+                              <p class="text-right">
+                                  <a class="text-success" href="/soarya/{{subject_slug}}/{{course.slug}}/{{'courses'}}/">
+                                  ...see more...</a></p>
+                          </div>
+                        </div>
+
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

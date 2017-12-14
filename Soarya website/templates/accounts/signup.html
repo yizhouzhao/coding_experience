@@ -1,0 +1,41 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+    		<div class="login-dark">
+			<div class="row main">
+				<div class="main-login main-center">
+					<form class="form-horizontal" method="post" action="#">
+                        {% csrf_token %}
+                        {% for field in form %}
+						<div class="form-group">
+							<label>{{field.label_tag}}</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									{% if forloop.counter == 1 %}
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									{% elif forloop.counter == 2 %}
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									{% else %}
+									<span class="input-group-addon"><i class="fa fa-lock fa" aria-hidden="true"></i></span>
+									{% endif %}
+									<!--<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>-->
+                                    {{ field }}
+								</div>
+							</div>
+						</div>
+                        {% for error in field.errors %}
+                              <p style="color: red">{{ error }}</p>
+                        {% endfor %}
+                        {% endfor %}
+
+						<div class="form-group ">
+							<button type="submit" class="btn btn-lg btn-block login-button button big">Register</button>
+						</div>
+						<div class="login-register">
+				            <a href="{% url 'accounts:login'%}">Login</a>
+				         </div>
+					</form>
+				</div>
+			</div>
+		</div>
+{% endblock %}

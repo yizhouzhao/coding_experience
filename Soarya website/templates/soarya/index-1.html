@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<html>
+<head>
+<title>Sourya Index</title>
+</head>
+<body>
+<h1>Soarya July 13</h1>
+{% if not user.is_authenticated %}
+<div>hey there partner!</div>
+{% else %}
+<div>Hello {{user.username }} !</div>
+{% endif %}
+<div>
+{% if categories %}
+<ul>
+{% for category in categories %}
+    <li>
+        <a href = "{%url 'soarya:subject' subject_slug='computer-science'  %}">{{ category.name }}</a>
+        </li>
+{% for course in category.course_set.all %}
+<li>
+    <a href = "/soarya/{{ category.slug }}/{{ course.slug }}/">----{{ course.name }}</a>
+</li>
+{% endfor %}
+{% endfor %}
+</ul>
+{% else %}
+<strong>There are no categories present.</strong>
+{% endif %}
+</div>
+<div>
+<ul>
+    {% if user.is_authenticated %}
+    <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+    {% else %}
+    <li><a href="{% url 'accounts:login' %}">Sign In</a></li>
+    <li><a href="{% url 'accounts:register' %}">Sign Up</a></li>
+    {% endif %}
+</ul>
+</div>
+
+<div>
+<a href = "{%url 'soarya:about' %}">About us</a><br />
+</div>
+</body>
+</html>
+

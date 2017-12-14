@@ -1,0 +1,157 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+<div id="index_header">
+    <h2 class="index_title"><strong>~{{source.category.name}}~{{source.course.name}}~</strong></h2>
+    <div class="divider"></div>
+ </div>
+<div class="col-sm-12">
+  <div class="well">
+    <div class="media">
+        <a class="pull-left" href="#">
+    <img class="media-object" src="http://placekitten.com/150/150">
+</a>
+        <div class="media-body">
+            <h4 class="media-heading"><a href="{{source.link}}">{{source.name}}</a></h4>
+            <span class="label label-success">{{source.author}}</span>
+          <span class="text-right">&nbsp Posted by {{source.owner.user.username}}</span>
+            <p></p>
+          <p>{{source.description}}</p>
+            <ul class="list-inline list-unstyled">
+    <li><span><i class="glyphicon glyphicon-calendar"></i>Shared on {{source.pub_date|date}}</span></li>
+    <li>|</li>
+    <span><i class="glyphicon glyphicon-comment"></i>&nbsp {{source.comment_num}} comment{{source.comment_num|pluralize}} </span>
+    <li>|</li>
+    <li>
+        {% for i in "xxxxx" %}
+        {% if forloop.counter0 < source.score %}
+        <span>★</span>
+          {% else %}
+         <span>&#9734</span>
+          {% endif %}
+          {% endfor %}
+    </li>
+    <li>|</li>
+    <li>
+      {% if source.difficulty > 2.5 %}
+     <span></span><span>Hard</span>
+      {% else %}
+      <span></span><span>Easy</span>
+      {% endif %}
+    </ul>
+        </div>
+    </div>
+  </div>
+</div>
+{% if user.is_authenticated %}
+ <div class="col-sm-offset-1 col-sm-10">
+     <form class="form" method="post">
+         {% csrf_token %}
+        <div class="form-group">
+            <div class="post-footer full">
+                <div class="input-group">
+                    <input class="form-control" placeholder="Add your comment" type="text" name="content">
+                    <span class="input-group-addon">
+                        <a href="#"><i class="fa fa-edit"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+         <div class="form-group col-sm-5 col-sm-offset-1">
+            Quality (between 1 and 5):
+      <input type="number" name="score" min="1" max="5">
+      </div>
+         <div class="form-group col-sm-5">
+            Difficulty (between 1 and 5):
+            <input type="number" name="difficulty" min="1" max="5">
+          </div>
+         <div class="col-sm-10 col-sm-offset-1">
+　　　　 <button type="submit" class="btn btn-block btn-warning">Submit</button>
+       </div>
+    </form>
+    <div class="divider col-sm-12" ></div>
+ </div>
+{% endif %}
+
+<!--comments-->
+<div class="row">
+     {% for comment in comments%}
+    <div class="col-sm-offset-2 col-sm-8">
+        <div class="panel panel-white post panel-shadow">
+            <div class="post-heading">
+                <div class="col-sm-6">
+                    <div class="pull-left image">
+                        <img src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+                    </div>
+                <div class="pull-left meta">
+                    <div class="title h5">
+                        <a href="#"><b>{{comment.owner.user.username}}</b></a>
+                        made a post.
+                    </div>
+                    <h6 class="text-muted time">posted on {{comment.pub_date|date}}</h6>
+
+                </div>
+            </div>
+                <div class = "col-sm-4">
+                    <div style="margin-top:15px">
+                        <ul class="list-inline list-unstyled">
+                    <li>
+                        {% for i in "xxxxx" %}
+                        {% if forloop.counter0 < comment.score %}
+                        <span>★</span>
+                          {% else %}
+                         <span>&#9734</span>
+                          {% endif %}
+                          {% endfor %}
+                    </li>
+                    <li>|</li>
+                    <li>
+                      {% if comment.difficulty > 2.5 %}
+                     <span></span><span>Hard</span>
+                      {% else %}
+                      <span></span><span>Easy</span>
+                      {% endif %}
+                </ul>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                <div class="stats">
+                    <a href="#" class="btn btn-default stat-item">
+                    <i class="fa fa-thumbs-up icon">&nbsp {{comment.like}}</i>
+                    </a>
+                </div>
+                 </div>
+
+            </div>
+
+        <div class="post-description">
+            <p>{{comment.content}}</p>
+        </div>
+    </div>
+    </div>
+     {% endfor %}
+    <div class="col-sm-offset-2 col-sm-8">
+        {% if comments.has_other_pages %}
+          <ul class="pagination">
+            {% if comments.has_previous %}
+              <li><a href="?page={{ comments.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+              <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in comments.paginator.page_range %}
+              {% if comments.number == i %}
+                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+              {% else %}
+                <li><a href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+            {% if comments.has_next %}
+              <li><a href="?page={{ comments.next_page_number }}">&raquo;</a></li>
+            {% else %}
+              <li class="disabled"><span>&raquo;</span></li>
+            {% endif %}
+          </ul>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

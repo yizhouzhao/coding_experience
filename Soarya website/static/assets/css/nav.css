@@ -1,0 +1,100 @@
+body.landing #header {
+  background-color:transparent;
+  left:0;
+  position:absolute;
+  top:0;
+}
+
+body.landing #header nav a {
+  color:rgba(255, 255, 255, 0.5);
+}
+
+#header {
+  background-color:rgba(76,54,32,0.8);
+  color:#765432;
+  cursor:default;
+  font-size:1.1em;
+  height:4.5em;
+  line-height:4.5em;
+  width:100%;
+  z-index:10000;
+}
+
+#header h1 {
+  color:#ffffff;
+  height:inherit;
+  left:3em;
+  line-height:inherit;
+  margin:0;
+  padding:0;
+  position:absolute;
+}
+
+#header h1 a {
+  font-size:1.25em;
+}
+
+#header nav {
+  height:inherit;
+  line-height:inherit;
+  position:absolute;
+  right:3em;
+  vertical-align:middle;
+}
+
+#header nav > ul {
+  list-style:none;
+  margin:0;
+  padding-left:0;
+}
+
+#header nav > ul > li {
+  border-radius:4px;
+  display:inline-block;
+  margin-left:2em;
+  padding-left:0;
+}
+
+#header nav > ul > li a {
+  -moz-transition:color 0.2s ease-in-out;
+  -webkit-transition:color 0.2s ease-in-out;
+  -o-transition:color 0.2s ease-in-out;
+  -ms-transition:color 0.2s ease-in-out;
+  transition:color 0.2s ease-in-out;
+  color:#cdced0;
+  display:inline-block;
+  text-decoration:none;
+}
+
+#header nav > ul > li a:active, #header nav > ul > li a:hover {
+  color:#139;
+}
+
+#header nav > ul > li:first-child {
+  margin-left:0;
+}
+
+#header nav > ul > li .button {
+  background-color:#fff;
+  color:#444 !important;
+  height:2.25em;
+  line-height:2.25em;
+  margin-bottom:0;
+  padding:0 1em;
+  position:relative;
+  top:-0.075em;
+  vertical-align:middle;
+}
+
+#header .container {
+  position:relative;
+}
+
+#header .container h1 {
+  left:0;
+}
+
+#header .container nav {
+  right:0;
+}
+

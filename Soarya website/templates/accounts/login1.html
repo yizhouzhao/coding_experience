@@ -1,0 +1,31 @@
+{% extends "soarya/base.html" %}
+{% block title_block %}
+Login
+{% endblock %}
+{% block body_block %}
+<h1>Login to Soarya</h1>
+<!--<form id="login_form" method="post" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+    Username: <input type="text" name="username" value="" size="50" />
+    <br />
+    Password: <input type="password" name="password" value="" size="50" />
+    <br />
+    <input type="submit" value="submit" />
+</form>-->
+<form id = "login_form" method = "post" action="{% url 'accounts:login' %}">
+    {% csrf_token %}
+    <h3 class="text-center">Login</h3>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"> </span></span>
+            <input type="text" placeholder="Username" name="username" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group"><span class="input-group-addon"><span class="glyphicon glyphicon-lock"> </span></span>
+            <input placeholder="Password" type="password" name="password" value="">
+        </div>
+    </div>
+    <input type="submit" value = "submit">
+</form>
+{% endblock %}

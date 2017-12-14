@@ -1,0 +1,9 @@
+I am sorry I can't attach the package in the email because the problem of the size.
+
+To see the shiny app,
+
+https://zyz2012.shinyapps.io/ShinyApp/
+
+To see the package building,
+
+https://github.com/ZhenqiWangC/243/tree/master/MFA

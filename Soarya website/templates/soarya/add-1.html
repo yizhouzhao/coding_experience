@@ -1,0 +1,75 @@
+{% extends "soarya/base.html" %}
+{% block body_block %}
+{% load staticfiles%}
+    <div id="index_header">
+        <h2 class="index_title"><strong>~Data Sciences~Machine Learning~</strong></h2>
+        <div class="divider"></div>
+    </div>
+    <div class="col-sm-12">
+        <div class="col-sm-10 col-sm-offset-1 add_soarya">
+            <form class="form">
+            <fieldset>
+              <div class="form-group">
+                <label for="select" class="col-sm-12 control-label">Category</label>
+                <div class="col-sm-10">
+                <select name="" id="cusSelectbox">
+                    <option value="Select">Select</option>
+                    <option value="India">India</option>
+                    <option value="Nepal">Nepal</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Sri Lanka">Sri Lanka</option>
+                    <option value="Pakistan">Pakistan</option>
+                </select>
+                </div>
+              </div>
+
+                    <div class="form-group">
+                <label class="col-sm-12 control-label">Category</label>
+                <div class="col-sm-10">
+                <select name="" id="cusSelectbox">
+                    <option value="Select">Select</option>
+                    <option value="India">India</option>
+                    <option value="Nepal">Nepal</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Sri Lanka">Sri Lanka</option>
+                    <option value="Pakistan">Pakistan</option>
+                </select>
+                </div>
+              </div>
+            <div class="form-group">
+              <label for="inputEmail" class="col-sm-12 control-label">Title</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="inputEmail" placeholder="" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPassword" class="col-sm-12 control-label">Link</label>
+              <div class="col-sm-10">
+                <input class="form-control" id="inputPassword" placeholder="" type="password">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="textArea" class="col-sm-12 control-label">Desription</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="3" id="textArea" placeholder="say some comments..."></textarea>
+              </div>
+            </div>
+              <div class="form-group col-sm-6">
+                  Quantity (between 1 and 5):
+              <input type="number" name="quantity" min="1" max="5">
+              </div>
+              <div class="form-group col-sm-6">
+                  Quantity (between 1 and 5):
+              <input type="number" name="quantity" min="1" max="5">
+              </div>
+            <div class="form-group">
+              <div class="col-sm-12">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+                </div>
+    </div>
+{% endblock %}
